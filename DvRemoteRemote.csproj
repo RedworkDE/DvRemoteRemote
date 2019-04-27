@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+    <OutputType>Library</OutputType>
+    <LangVersion>latest</LangVersion>
+    <Authors>RedworkDE</Authors>
+    <Copyright>(c) 2019 RedworDE</Copyright>
+    <Platforms>AnyCPU</Platforms>
+    <DefineConstants></DefineConstants>
+    
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="$(DefineConstants.Contains('BepInEx'))">
+      <PropertyGroup>
+        <OutputPath>C:\DerailValley\BepInEx\plugins\$(MSBuildProjectName)</OutputPath>
+      </PropertyGroup>
+      <ItemGroup>
+        <Reference Include="BepInEx">
+          <HintPath>C:\DerailValley\BepInEx\core\BepInEx.dll</HintPath>
+          <Private>false</Private>
+        </Reference>
+        <Reference Include="BepInEx.Harmony">
+          <HintPath>C:\DerailValley\BepInEx\core\BepInEx.Harmony.dll</HintPath>
+          <Private>false</Private>
+        </Reference>
+        <Reference Include="0Harmony">
+          <HintPath>C:\DerailValley\BepInEx\core\0Harmony.dll</HintPath>
+          <Private>false</Private>
+        </Reference>
+        <None Remove="Info.json" />
+      </ItemGroup>
+    </When>
+    <When Condition="$(DefineConstants.Contains('UMM'))">
+      <PropertyGroup>
+        <OutputPath>C:\DerailValley\Mods\$(MSBuildProjectName)</OutputPath>
+      </PropertyGroup>
+      <ItemGroup>
+        <Reference Include="UnityModManager">
+          <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
+          <Private>false</Private>
+        </Reference>
+        <Reference Include="0Harmony">
+          <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityModManager\0Harmony-1.2.dll</HintPath>
+          <Private>false</Private>
+        </Reference>
+        <None Update="Info.json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+      </ItemGroup>
+    </When>
+  </Choose>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BezierCurves">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\BezierCurves.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="DV.Interaction">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\DV.Interaction.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="DV.TerrainSystem">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\DV.TerrainSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="DV.Utils">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\DV.Utils.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.StreamingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>C:\DerailValley\DerailValley_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.Core">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.Data">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.Drawing">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.IO.Compression.FileSystem">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.Numerics">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.Runtime.Serialization">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.Xml">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.Xml.Linq">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Error Text="You must define exactly one of the compilation constants 'BepInEx' and 'UMM'" Condition="!(( $(DefineConstants.Contains('BepInEx')) OR $(DefineConstants.Contains('UMM')) )  AND  ( !$(DefineConstants.Contains('BepInEx')) OR !$(DefineConstants.Contains('UMM')) ))" />
+    <ItemGroup>
+      <TsFiles Include="static\**\*.ts" />
+    </ItemGroup>
+    <Exec Command="tsc --lib esnext,dom --strict %(TsFiles.Identity)" />
+    <ItemGroup>
+      <None Remove="static\**\*" />
+      <EmbeddedResource Include="static\**\*" />
+    </ItemGroup>
+  </Target>
+
+</Project>

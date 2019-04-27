@@ -1,0 +1,7 @@
+{
+  "Id": "DvRemoteRemote",
+  "DisplayName": "Remote Remote Controller",
+  "Author": "RedworkDE",
+  "Version": "0.1.0",
+  "EntryMethod": "DvRemoteRemote.RemoteControl.Load"
+}
